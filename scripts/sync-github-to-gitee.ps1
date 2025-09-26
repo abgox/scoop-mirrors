@@ -5,11 +5,15 @@ $repoJsonInfo = Get-Content $repoJsonPath | ConvertFrom-Json
 
 $currentDir = Get-Location
 
+$headers = @{
+    "Authorization" = "Bearer $env:GITHUB_TOKEN"
+}
+
 foreach ($item in $repoJsonInfo.list) {
     $repoName = $item.repo.Split("/")[-1]
 
     try {
-        $repoInfo = Invoke-WebRequest "https://api.github.com/repos/$($item.repo)" | ConvertFrom-Json
+        $repoInfo = Invoke-WebRequest "https://api.github.com/repos/$($item.repo)" -Headers $headers | ConvertFrom-Json
     }
     catch {
         Write-Host "::error::$_" -ForegroundColor Red
