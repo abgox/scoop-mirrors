@@ -6,7 +6,7 @@ $repoJsonInfo = Get-Content $repoJsonPath | ConvertFrom-Json
 $currentDir = Get-Location
 
 $headers = @{
-    "Authorization" = "Bearer $env:GITHUB_TOKEN"
+    Authorization = "token $env:GITHUB_TOKEN"
 }
 
 foreach ($item in $repoJsonInfo.list) {
