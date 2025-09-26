@@ -3,8 +3,8 @@ name: Sync GitHub to Gitee
 on:
   workflow_dispatch:
   schedule:
-    # At minute 20 past every 4th hour.
-    - cron: "20 */4 * * *"
+    # At minute 50 past every 4th hour.
+    - cron: "50 */4 * * *"
 
 jobs:
   sync-repos:
@@ -12,6 +12,7 @@ jobs:
     env:
       USER_NAME: "abgox"
       USER_EMAIL: "abgohxf@outlook.com"
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Setup SSH
         shell: pwsh
