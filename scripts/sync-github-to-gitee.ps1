@@ -17,11 +17,18 @@ $currentDir = Get-Location
 
 foreach ($repo in $repoList) {
     Set-Location $currentDir
-    git clone "git@github.com:$repo.git"
+    git clone --mirror "git@github.com:$repo.git"
+
     $repoName = $repo.Split("/")[-1]
     Set-Location $repoName
     git remote add gitee "git@gitee.com:scoop-installer-mirrors/$repoName.git"
-    git push gitee --force
+
+    if ($repoName -eq "Install") {
+        git push gitee --all --force
+    }
+    else {
+        git push gitee --mirror --force
+    }
 }
 
 Set-Location $currentDir
