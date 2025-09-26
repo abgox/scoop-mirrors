@@ -1,0 +1,52 @@
+{
+  "list": [
+    {
+      "repo": "ScoopInstaller/Main",
+      "updated_at": "2025-09-26 21:19:43"
+    },
+    {
+      "repo": "ScoopInstaller/Extras",
+      "updated_at": "2025-09-26 21:19:43"
+    },
+    {
+      "repo": "ScoopInstaller/Versions",
+      "updated_at": "2025-09-26 21:19:43"
+    },
+    {
+      "repo": "matthewjberger/scoop-nerd-fonts",
+      "updated_at": "2025-09-26 21:19:43"
+    },
+    {
+      "repo": "ScoopInstaller/Nirsoft",
+      "updated_at": "2025-09-26 21:19:43"
+    },
+    {
+      "repo": "niheaven/scoop-sysinternals",
+      "updated_at": "2025-09-26 21:19:43"
+    },
+    {
+      "repo": "ScoopInstaller/PHP",
+      "updated_at": "2025-09-26 21:19:43"
+    },
+    {
+      "repo": "ScoopInstaller/Nonportable",
+      "updated_at": "2025-09-26 21:19:43"
+    },
+    {
+      "repo": "ScoopInstaller/Java",
+      "updated_at": "2025-09-26 21:19:43"
+    },
+    {
+      "repo": "Calinou/scoop-games",
+      "updated_at": "2025-09-26 21:19:43"
+    },
+    {
+      "repo": "ScoopInstaller/Scoop",
+      "updated_at": "2025-09-26 21:19:43"
+    },
+    {
+      "repo": "ScoopInstaller/Install",
+      "updated_at": "2025-09-26 21:19:43"
+    }
+  ]
+}
