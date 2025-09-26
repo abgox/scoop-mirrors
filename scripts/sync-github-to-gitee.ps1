@@ -27,7 +27,7 @@ foreach ($item in $repoJsonInfo.list) {
         Write-Host "Sync $clone_url"
     }
 
-    git clone --mirror $clone_url.Replace("https://github.com", "git@github.com") $repoName
+    git clone --mirror $clone_url.Replace("https://github.com/", "git@github.com:") $repoName
 
     Set-Location $repoName
 
