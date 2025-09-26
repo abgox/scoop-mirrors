@@ -42,7 +42,9 @@
     },
     {
       "repo": "ScoopInstaller/Scoop",
-      "extra_branch": ["develop"],
+      "extra_branch": [
+        "develop"
+      ],
       "updated_at": "2025-09-26 21:19:43"
     },
     {
