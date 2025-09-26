@@ -27,17 +27,19 @@ foreach ($item in $repoJsonInfo.list) {
         Write-Host "Sync $clone_url"
     }
 
-    git clone --mirror $clone_url.Replace("https://github.com/", "git@github.com:") $repoName
+    git clone $clone_url.Replace("https://github.com/", "git@github.com:") $repoName
 
     Set-Location $repoName
 
     git remote add gitee "git@gitee.com:scoop-installer-mirrors/$repoName.git"
 
-    if ($repoName -eq "Install") {
-        git push gitee --all --force
-    }
-    else {
-        git push gitee --mirror --force
+    git push gitee --force
+
+    if ($item.extra_branch) {
+        foreach ($branch in $item.extra_branch) {
+            git checkout $branch
+            git push gitee --force
+        }
     }
 
     $item.updated_at = $updated_at
