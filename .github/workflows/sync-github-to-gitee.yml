@@ -49,18 +49,13 @@ jobs:
           # ssh -T git@github.com
           ssh -T git@gitee.com
 
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Sync Repos
         shell: pwsh
         run: |
           .\scripts\sync-github-to-gitee.ps1
-
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Update Sync Time
-        shell: pwsh
-        run: |
-          (Get-Date).ToString('o') | Out-File "last-sync.txt" -Force -Encoding utf8
 
       - name: Commit and push changes
         shell: pwsh
