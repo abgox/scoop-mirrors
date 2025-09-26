@@ -31,7 +31,7 @@ foreach ($item in $repoJsonInfo.list) {
         Write-Host "Sync $clone_url"
     }
 
-    git clone $clone_url.Replace("https://github.com/", "git@github.com:") $repoName
+    git clone $clone_url $repoName
 
     Set-Location $repoName
 
