@@ -5,35 +5,71 @@ $repoJsonInfo = Get-Content $repoJsonPath | ConvertFrom-Json
 
 $currentDir = Get-Location
 
-$headers = @{
-    Authorization = "token $env:GITHUB_TOKEN"
+$headers = @{}
+
+if ($env:GITHUB_TOKEN) {
+    $headers.Authorization = "token $env:GITHUB_TOKEN"
 }
 
 foreach ($item in $repoJsonInfo.list) {
     $repoName = $item.repo.Split("/")[-1]
 
+    $url = "https://github.com/$($item.repo)"
+
+    $allCommits = @()
+
     try {
-        $repoInfo = Invoke-WebRequest "https://api.github.com/repos/$($item.repo)" -Headers $headers | ConvertFrom-Json
+        $commits = Invoke-RestMethod "https://api.github.com/repos/$($item.repo)/commits?per_page=1" -Headers $headers
+        $allCommits += @{
+            Sha  = $commits[0].sha
+            Date = [datetime]$commits[0].commit.committer.date
+        }
     }
     catch {
         Write-Host "::error::$_" -ForegroundColor Red
         continue
     }
 
-    $clone_url = $repoInfo.clone_url
-    $updated_at = $repoInfo.updated_at
+    if ($item.extra_branch) {
+        foreach ($branch in $item.extra_branch) {
+            try {
+                $commit = Invoke-RestMethod "https://api.github.com/repos/$($item.repo)/commits/$branch" -Headers $headers
+                $allCommits += @{
+                    Sha  = $commit.sha
+                    Date = [datetime]$commit.commit.committer.date
+                }
+            }
+            catch {
+                Write-Host "::error::$_" -ForegroundColor Red
+                continue
+            }
+        }
+    }
 
-    if ($item.updated_at -eq $updated_at) {
-        Write-Host "Skip $clone_url"
+    $latestCommit = $allCommits | Sort-Object -Property Date -Descending | Select-Object -First 1
+
+    if ($item.sha -eq $latestCommit.Sha) {
+        Write-Host "Skip $url"
         continue
     }
-    else {
-        Write-Host "Sync $clone_url"
+    Write-Host "Sync $url"
+
+    try {
+        git clone $url $repoName
+        if ($LASTEXITCODE -ne 0) { throw "Git clone failed" }
+    }
+    catch {
+        Write-Host "::error::$_" -ForegroundColor Red
+        continue
     }
 
-    git clone $clone_url $repoName
-
-    Set-Location $repoName
+    try {
+        Set-Location $repoName -ErrorAction Stop
+    }
+    catch {
+        Write-Host "::error::$_" -ForegroundColor Red
+        continue
+    }
 
     git remote add gitee "git@gitee.com:scoop-installer-mirrors/$repoName.git"
 
@@ -46,7 +82,7 @@ foreach ($item in $repoJsonInfo.list) {
         }
     }
 
-    $item.updated_at = $updated_at
+    $item.sha = $latestCommit.Sha
 
     Set-Location $currentDir
 }
