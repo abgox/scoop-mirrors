@@ -49,10 +49,10 @@ foreach ($item in $repoJsonInfo.list) {
     $latestCommit = $allCommits | Sort-Object -Property Date -Descending | Select-Object -First 1
 
     if ($item.sha -eq $latestCommit.Sha) {
-        Write-Host "Skip $url"
+        Write-Host "::notice::Skip $url"
         continue
     }
-    Write-Host "Sync $url"
+    Write-Host "::notice::Sync $url"
 
     try {
         git clone $url $repoName
