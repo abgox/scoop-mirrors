@@ -52,7 +52,7 @@ foreach ($item in $repoJsonInfo.list) {
         Write-Host "::notice::Skip $url"
         continue
     }
-    Write-Host "::notice::Sync $url"
+    Write-Host "::warning::Sync $url"
 
     try {
         git clone $url $repoName
