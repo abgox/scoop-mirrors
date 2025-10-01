@@ -2,15 +2,15 @@
   "list": [
     {
       "repo": "ScoopInstaller/Main",
-      "sha": "45476fac71fc152a215c57d576d08b28a4286069"
+      "sha": "86ce801770c82c7af0184f93d3c80fa1a109f857"
     },
     {
       "repo": "ScoopInstaller/Extras",
-      "sha": "d5e0b8d82806dd89da9df62d3be909fc99ec614b"
+      "sha": "5115622b6a9d1d5258acafd4b6c0cbc8f522884d"
     },
     {
       "repo": "ScoopInstaller/Versions",
-      "sha": "5d56e10128351fdcc8abc66ef81372d5239fea68"
+      "sha": "97fc279ff4c5670846d79a01052b4a5d62fb6c69"
     },
     {
       "repo": "matthewjberger/scoop-nerd-fonts",
@@ -38,7 +38,7 @@
     },
     {
       "repo": "Calinou/scoop-games",
-      "sha": "06295f430885c50d593627df131e9fe9f0ea69c2"
+      "sha": "28f7d12c52c4b986270797af237e334b021a09a4"
     },
     {
       "repo": "ScoopInstaller/Scoop",
