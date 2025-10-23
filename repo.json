@@ -2,15 +2,15 @@
   "list": [
     {
       "repo": "ScoopInstaller/Main",
-      "sha": "d60f17f2ecf1c26b75b66dc98617e9784288af9e"
+      "sha": "4d7e434a59f09529cbf2d2d7154045fd0297480d"
     },
     {
       "repo": "ScoopInstaller/Extras",
-      "sha": "bd3067275a6681f0b52972f1ce3807585cbb5811"
+      "sha": "9bfeacc17b84d697026377e8a5e6abafdd8a1818"
     },
     {
       "repo": "ScoopInstaller/Versions",
-      "sha": "1ea0b723f8831b5667c80fc13307a93d7579dbb4"
+      "sha": "769d2aba9ebfe24be92135b79a492ccd933cba80"
     },
     {
       "repo": "matthewjberger/scoop-nerd-fonts",
