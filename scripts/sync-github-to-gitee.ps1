@@ -81,6 +81,10 @@ foreach ($item in $repoJsonInfo.list) {
             git push gitee --force
         }
     }
+    if ($item.tags) {
+        git fetch --tags
+        git push gitee --tags
+    }
 
     $item.sha = $latestCommit.Sha
 
