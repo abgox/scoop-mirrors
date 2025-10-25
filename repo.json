@@ -45,6 +45,7 @@
       "extra_branch": [
         "develop"
       ],
+      "tags": true,
       "sha": "52a035b5ccaac35de8c7978f74c90ad57cd8a097"
     },
     {
