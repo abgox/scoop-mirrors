@@ -71,7 +71,7 @@ foreach ($item in $repoJsonInfo.list) {
         continue
     }
 
-    git remote add gitee "https://oauth2:$env:PAT_TOKEN_GITEE@gitee.com/$repoName.git"
+    git remote add gitee "https://oauth2:$env:PAT_TOKEN_GITEE@gitee.com/scoop-installer-mirrors/$repoName.git"
 
     git push gitee --force
 
