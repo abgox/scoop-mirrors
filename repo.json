@@ -6,11 +6,11 @@
     },
     {
       "repo": "ScoopInstaller/Extras",
-      "sha": "ff91df089d829d5b5a467d981b9f8bb61e8be146"
+      "sha": "8984fe83f4ffd54f30439a910c6de3e861fc9185"
     },
     {
       "repo": "ScoopInstaller/Versions",
-      "sha": "81133fa182cb81f9a5895daa00da783442915a91"
+      "sha": "7217b39e8389dee261f1dda9eca3863f471473d7"
     },
     {
       "repo": "matthewjberger/scoop-nerd-fonts",
@@ -18,7 +18,7 @@
     },
     {
       "repo": "ScoopInstaller/Nirsoft",
-      "sha": "667712e77102bfb14b3e5b8f72ed11f80d7d1b1e"
+      "sha": "94fc789e331516eb2a8b0c3497b202d6130d9aad"
     },
     {
       "repo": "niheaven/scoop-sysinternals",
